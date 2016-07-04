@@ -3,7 +3,11 @@ package com.fd.weixinplf.message;
 import com.fd.weixinplf.message.util.XmlStringConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
-
+/**
+ * 音乐消息,仅作为回复消息使用
+ * @author caoliuyi
+ *
+ */
 @XStreamAlias("xml")
 public class MusicMessage extends Message {
 

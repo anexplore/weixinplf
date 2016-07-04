@@ -2,6 +2,7 @@ package com.fd.weixinplf.message;
 
 import java.util.ArrayList;
 
+import com.fd.weixinplf.message.util.XmlSerializerInitializer;
 import com.thoughtworks.xstream.XStream;
 
 import junit.framework.TestCase;
@@ -15,7 +16,7 @@ public class MessageToXmlTest extends TestCase {
         msg.fromUserName = "user";
         msg.msgType = WxMessage.MSG_TYPE_TEXT;
         msg.content = "test";
-        XStream xstream = new XStream();
+        XStream xstream = new XmlSerializerInitializer().initialize();
         xstream.processAnnotations(WxMessage.class);
         System.out.println(xstream.toXML(msg));
         String xmlString = "<xml><CreateTime>123123</CreateTime><ToUserName><![CDATA[hello]]></ToUserName></xml>";
@@ -23,7 +24,7 @@ public class MessageToXmlTest extends TestCase {
         System.out.println(fMsg.toUserName);
         System.out.println(fMsg.createTime);
         
-        XStream xstream1 = new XStream();
+        XStream xstream1 = new XmlSerializerInitializer().initialize();
         xstream1.processAnnotations(Message.class);
         xstream1.processAnnotations(TextMessage.class);
         xstream1.processAnnotations(ImageMessage.class);

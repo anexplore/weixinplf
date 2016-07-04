@@ -4,6 +4,11 @@ import com.fd.weixinplf.message.util.XmlStringConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 
+/**
+ * (小)视频消息 即可以作为推送消息也可以作为回复消息
+ * @author caoliuyi
+ *
+ */
 @XStreamAlias("xml")
 public class VideoMessage extends Message {
 
@@ -32,5 +37,10 @@ public class VideoMessage extends Message {
         @XStreamAlias("Description")
         @XStreamConverter(value=XmlStringConverter.class)
         public String description;
+        
+        @XStreamAlias("ThumbMediaId")
+        @XStreamConverter(value=XmlStringConverter.class)
+        // 作为回复消息时没有此项
+        public String thumbMediaId;
     }
 }

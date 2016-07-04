@@ -34,6 +34,7 @@ public class VideoMessageBuilder extends MessageBuilder {
         private String mediaId;
         private String title;
         private String description;
+        private String thumbMediaId;
         
         VideoBuilder() {}
         
@@ -52,11 +53,17 @@ public class VideoMessageBuilder extends MessageBuilder {
             return this;
         }
         
+        public VideoBuilder setThumbMediaId(String thumbMediaId) {
+            this.thumbMediaId = thumbMediaId;
+            return this;
+        }
+        
         public Video build() {
             Video video = new Video();
             video.description = description;
             video.title = title;
             video.mediaId = mediaId;
+            video.thumbMediaId = thumbMediaId;
             return video;
         }
     }

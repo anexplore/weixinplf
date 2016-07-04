@@ -5,7 +5,11 @@ import java.util.List;
 import com.fd.weixinplf.message.util.XmlStringConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
-
+/**
+ * 图文消息, 作为回复消息使用
+ * @author caoliuyi
+ *
+ */
 @XStreamAlias("xml")
 public class ArticleMessage extends Message {
     

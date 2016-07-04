@@ -7,9 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 @XStreamAlias("xml")
 public class Message {
 
-    public Message() {
-        System.out.println("called");
-    }
+    public Message() {}
     
     public Message(Message message) {
         toUserName = message.toUserName;
