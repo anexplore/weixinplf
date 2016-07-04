@@ -1,7 +1,6 @@
 package com.fd.weixinplf.message;
 /**
  * 链接信息,仅限于微信服务器推送消息,不可作为回复消息
- * @author caoliuyi
  *
  */
 public class LinkMessage extends Message {

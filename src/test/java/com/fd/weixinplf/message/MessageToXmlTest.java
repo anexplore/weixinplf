@@ -2,6 +2,7 @@ package com.fd.weixinplf.message;
 
 import java.util.ArrayList;
 
+import com.fd.weixinplf.message.util.XmlFactory;
 import com.fd.weixinplf.message.util.XmlSerializerInitializer;
 import com.thoughtworks.xstream.XStream;
 
@@ -45,5 +46,8 @@ public class MessageToXmlTest extends TestCase {
         article.description = "today's wether";
         articleMsg.articles.add(article);
         System.out.println(xstream1.toXML(articleMsg));
+        
+        XStream xstream2 = XmlFactory.newArticleMessageSerializer();
+        System.out.println(xstream2.toXML(articleMsg));
     }
 }

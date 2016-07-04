@@ -6,8 +6,6 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 /**
  * (小)视频消息 即可以作为推送消息也可以作为回复消息
- * @author caoliuyi
- *
  */
 @XStreamAlias("xml")
 public class VideoMessage extends Message {

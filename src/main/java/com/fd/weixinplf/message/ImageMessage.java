@@ -5,7 +5,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 /**
  * 图片消息，即作为微信推送消息也作为回复消息
- * @author caoliuyi
  *
  */
 @XStreamAlias("xml")

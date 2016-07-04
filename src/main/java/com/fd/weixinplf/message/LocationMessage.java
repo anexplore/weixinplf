@@ -1,7 +1,6 @@
 package com.fd.weixinplf.message;
 /**
  * 地理位置信息,尽可作为微信服务器推送消息,不可作为回复消息
- * @author caoliuyi
  *
  */
 public class LocationMessage extends Message {
