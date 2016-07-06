@@ -6,6 +6,7 @@ import java.util.List;
 import com.fd.weixinplf.NotThreadSafe;
 import com.fd.weixinplf.message.ArticleMessage;
 import com.fd.weixinplf.message.ArticleMessage.Article;
+import com.fd.weixinplf.message.WxMessage;
 
 @NotThreadSafe
 public class ArticleMessageBuilder extends MessageBuilder {
@@ -35,6 +36,7 @@ public class ArticleMessageBuilder extends MessageBuilder {
     @Override public ArticleMessage build() {
         ArticleMessage articleMsg = new ArticleMessage(super.build());
         articleMsg.articles = articles;
+        articleMsg.msgType = WxMessage.MSG_TYPE_NEWS;
         return articleMsg;
     }
     

@@ -7,13 +7,14 @@ import com.fd.weixinplf.message.MusicMessage;
 import com.fd.weixinplf.message.TextMessage;
 import com.fd.weixinplf.message.VideoMessage;
 import com.fd.weixinplf.message.VoiceMessage;
+import com.fd.weixinplf.message.WxMessage;
 import com.fd.weixinplf.message.VideoMessage.Video;
 import com.thoughtworks.xstream.XStream;
 
 public class XmlFactory {
     
     public static XStream newSerializer() {
-        return new XmlDeserializerInitializer().initialize();
+        return new XmlSerializerInitializer().initialize();
     }
     
     /**
@@ -84,9 +85,19 @@ public class XmlFactory {
     }
     
     /**
-     * @return XStream WxMessage消息反序列化
+     * @return XStream 消息反序列化
      */
     public static XStream newDeserializer() {
         return new XmlDeserializerInitializer().initialize();
+    }
+    
+    /**
+     * @return XStream WxMessage消息反序列化
+     */
+    public static XStream newWxMessageDeserializer() {
+        XStream xstream = new XmlDeserializerInitializer().initialize();
+        xstream.processAnnotations(WxMessage.class);
+        xstream.ignoreUnknownElements();
+        return xstream;
     }
 }

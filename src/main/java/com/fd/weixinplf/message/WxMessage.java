@@ -5,6 +5,7 @@ import com.fd.weixinplf.message.builders.ImageMessageBuilder;
 import com.fd.weixinplf.message.builders.LinkMessageBuilder;
 import com.fd.weixinplf.message.builders.LocationMessageBuilder;
 import com.fd.weixinplf.message.builders.MessageBuilder;
+import com.fd.weixinplf.message.builders.TextMessageBuilder;
 import com.fd.weixinplf.message.builders.VideoMessageBuilder;
 import com.fd.weixinplf.message.builders.VoiceMessageBuilder;
 import com.fd.weixinplf.message.util.XmlStringConverter;
@@ -26,6 +27,8 @@ public class WxMessage {
     public static final String MSG_TYPE_LOCATION = "location";
     public static final String MSG_TYPE_LINK = "link";
     public static final String MSG_TYPE_EVENT = "event";
+    public static final String MSG_TYPE_NEWS = "news";
+    public static final String MSG_TYPE_MUSIC = "music";
     
     public static final String EVENT_TYPE_SUBSCRIBE = "subscribe";
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";
@@ -147,56 +150,56 @@ public class WxMessage {
      * @return 是否为文本消息
      */
     public boolean isTextMessage() {
-        return msgType.equals(MSG_TYPE_TEXT);
+        return msgType != null && msgType.equals(MSG_TYPE_TEXT);
     }
     
     /**
      * @return 是否为语音消息
      */
     public boolean isVoiceMessage() {
-        return msgType.equals(MSG_TYPE_VOICE);
+        return msgType != null && msgType.equals(MSG_TYPE_VOICE);
     }
     
     /**
      * @return 是否为视频消息
      */
     public boolean isVideoMessage() {
-        return msgType.equals(MSG_TYPE_VIDEO);
+        return msgType != null && msgType.equals(MSG_TYPE_VIDEO);
     }
     
     /**
      * @return 是否为图片消息
      */
     public boolean isImageMessage() {
-        return msgType.equals(MSG_TYPE_IMAGE);
+        return msgType != null && msgType.equals(MSG_TYPE_IMAGE);
     }
     
     /**
      * @return 是否为短视频消息
      */
     public boolean isShortVideoMessage() {
-        return msgType.equals(MSG_TYPE_SHORT_VIDEO);
+        return msgType != null && msgType.equals(MSG_TYPE_SHORT_VIDEO);
     }
     
     /**
      * @return 是否为地理位置消息
      */
     public boolean isLocationMessage() {
-        return msgType.equals(MSG_TYPE_LOCATION);
+        return msgType != null && msgType.equals(MSG_TYPE_LOCATION);
     }
     
     /**
      * @return 是否为链接消息
      */
     public boolean isLinkMessage() {
-        return msgType.equals(MSG_TYPE_LINK);
+        return msgType != null && msgType.equals(MSG_TYPE_LINK);
     }
     
     /**
      * @return 是否为事件消息
      */
     public boolean isEventMessage() {
-        return msgType.equals(MSG_TYPE_EVENT);
+        return msgType != null && msgType.equals(MSG_TYPE_EVENT);
     }
     
     /**
@@ -206,6 +209,21 @@ public class WxMessage {
         return MessageBuilder.custom().setCreateTime(createTime)
                 .setFromUserName(fromUserName).setMsgId(msgId)
                 .setMsgType(msgType).setToUserName(toUserName).build();
+    }
+    
+    /**
+     * @return Message 转换成TextMessage
+     */
+    public TextMessage toTextMessage() {
+        if (!isTextMessage()) {
+            throw new RuntimeException(msgType + " cannot be convert to text message");
+        }
+        TextMessageBuilder builder = TextMessageBuilder.custom();
+        builder.setContent(content)
+            .setCreateTime(createTime)
+            .setFromUserName(fromUserName).setMsgId(msgId)
+            .setMsgType(msgType).setToUserName(toUserName);
+        return builder.build();
     }
     
     /**

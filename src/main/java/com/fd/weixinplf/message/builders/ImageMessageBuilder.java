@@ -2,6 +2,7 @@ package com.fd.weixinplf.message.builders;
 
 import com.fd.weixinplf.NotThreadSafe;
 import com.fd.weixinplf.message.ImageMessage;
+import com.fd.weixinplf.message.WxMessage;
 import com.fd.weixinplf.message.ImageMessage.Image;
 
 @NotThreadSafe
@@ -29,6 +30,7 @@ public class ImageMessageBuilder extends MessageBuilder {
     @Override public ImageMessage build() {
         ImageMessage msg = new ImageMessage(super.build());
         msg.image = image;
+        msg.msgType = WxMessage.MSG_TYPE_IMAGE;
         return msg;
     }
 }

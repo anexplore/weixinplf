@@ -3,6 +3,7 @@ package com.fd.weixinplf.message.builders;
 import com.fd.weixinplf.NotThreadSafe;
 import com.fd.weixinplf.message.MusicMessage;
 import com.fd.weixinplf.message.MusicMessage.Music;
+import com.fd.weixinplf.message.WxMessage;
 
 @NotThreadSafe
 public class MusicMessageBuilder extends MessageBuilder {
@@ -27,6 +28,7 @@ public class MusicMessageBuilder extends MessageBuilder {
     @Override public MusicMessage build() {
         MusicMessage msg = new MusicMessage(super.build());
         msg.music = music;
+        msg.msgType = WxMessage.MSG_TYPE_MUSIC;
         return msg;
     }
     

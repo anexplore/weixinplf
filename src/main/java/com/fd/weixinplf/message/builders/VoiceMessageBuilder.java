@@ -3,6 +3,7 @@ package com.fd.weixinplf.message.builders;
 import com.fd.weixinplf.NotThreadSafe;
 import com.fd.weixinplf.message.VoiceMessage;
 import com.fd.weixinplf.message.VoiceMessage.Voice;
+import com.fd.weixinplf.message.WxMessage;
 
 @NotThreadSafe
 public class VoiceMessageBuilder extends MessageBuilder {
@@ -29,6 +30,7 @@ public class VoiceMessageBuilder extends MessageBuilder {
     @Override public VoiceMessage build() {
         VoiceMessage msg = new VoiceMessage(super.build());
         msg.voice = voice;
+        msg.msgType = WxMessage.MSG_TYPE_VOICE;
         return msg;
     }
 }

@@ -32,4 +32,20 @@
       <version>1.10</version>
     </dependency>
   </dependencies>
+    <build>
+    <plugins>
+	  <plugin>
+	     <groupId>org.apache.maven.plugins</groupId>
+		 <artifactId>maven-compiler-plugin</artifactId>
+		 <configuration>
+           <source>1.7</source>
+           <target>1.7</target>
+           <showDeprecation>true</showDeprecation>
+           <showWarnings>true</showWarnings>
+           <executable>${env.JAVA_HOME}/bin/javac</executable>
+           <fork>true</fork>
+         </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

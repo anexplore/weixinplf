@@ -3,6 +3,7 @@ package com.fd.weixinplf.message.builders;
 import com.fd.weixinplf.NotThreadSafe;
 import com.fd.weixinplf.message.VideoMessage;
 import com.fd.weixinplf.message.VideoMessage.Video;
+import com.fd.weixinplf.message.WxMessage;
 
 @NotThreadSafe
 public class VideoMessageBuilder extends MessageBuilder {
@@ -27,6 +28,7 @@ public class VideoMessageBuilder extends MessageBuilder {
     @Override public VideoMessage build() {
         VideoMessage msg = new VideoMessage(super.build());
         msg.video = video;
+        msg.msgType = WxMessage.MSG_TYPE_VIDEO;
         return msg;
     }
     
